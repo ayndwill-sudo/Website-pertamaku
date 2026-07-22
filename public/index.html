@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Pertamaku</title>
+<style>
+body{font-family:Arial;background:linear-gradient(135deg,#667eea,#764ba2);color:white;min-height:100vh;padding:40px 20px;margin:0;text-align:center}
+.container{max-width:600px;margin:0 auto}
+.emoji{font-size:5rem}
+h1{font-size:2rem;margin:15px 0}
+button{padding:15px 40px;border:none;border-radius:50px;background:white;color:#667eea;font-weight:bold;cursor:pointer}
+#hasil{margin-top:30px;padding:20px;background:rgba(0,0,0,0.2);border-radius:15px}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="emoji">🚀</div>
+<h1>Website Pertamaku!</h1>
+<p>Dibuat dari HP Android pakai GitHub Codespaces</p>
+<button onclick="ambilData()">Test API</button>
+<div id="hasil">Klik tombol untuk test API</div>
+</div>
+<script>
+async function ambilData(){
+const h=document.getElementById('hasil');
+h.innerHTML='Loading...';
+const res=await fetch('/api/salam');
+const data=await res.json();
+h.innerHTML='✅ '+data.pesan+'<br>🕐 '+data.waktu;
+}
+</script>
+</body>
+</html>
